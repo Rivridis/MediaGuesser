@@ -1,3 +1,5 @@
+import RandomImage from "./components/randomimage.jsx";
+
 export default function Home() {
   return (
     <div className="h-screen flex flex-col bg-[#2D336B] bg-cover bg-center">
@@ -5,11 +7,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold my-[55px] text-[#A9B5DF]">MediaGuesser</h1>
         
         <div className="w-1/2 h-96 bg-gray-300 rounded-xl flex items-center justify-center mb-6">
-          <img 
-            src='' 
-            alt="Display" 
-            className="w-full h-full object-cover rounded-xl"
-          />
+          <RandomImage/>
         </div>
       </div>
       <div className="flex flex-row items-center justify-center my-8">
