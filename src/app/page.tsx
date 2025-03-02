@@ -15,7 +15,7 @@ export default function Home() {
       <div className="flex flex-row items-center justify-center my-8">
         <input 
           type="text" 
-          placeholder="Enter something..." 
+          placeholder="Enter Your Guess" 
           className="w-64 p-2 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFF2F2] text-[#2D336B]"
         />
         <button className="bg-[#A9B5DF] hover:bg-[#7886C7] text-white font-bold py-2 px-4 mx-4 rounded-lg">
