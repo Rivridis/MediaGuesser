@@ -1,3 +1,5 @@
+"use client";
+
 import RandomImage from "./components/randomimage.jsx";
 
 export default function Home() {
@@ -16,7 +18,7 @@ export default function Home() {
           placeholder="Enter Your Guess" 
           className="w-64 p-2 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFF2F2] text-[#2D336B]"
         />
-        <button className="bg-[#A9B5DF] hover:bg-[#7886C7] text-white font-bold py-2 px-4 mx-4 rounded-lg">
+        <button onClick={handleClick} className="bg-[#A9B5DF] hover:bg-[#7886C7] text-white font-bold py-2 px-4 mx-4 rounded-lg">
           Guess!
         </button>
       </div>
@@ -30,4 +32,8 @@ export default function Home() {
       </div>
     </div>
   );
+}
+
+function handleClick() {
+  console.log("increment like count")
 }

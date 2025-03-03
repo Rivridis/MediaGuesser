@@ -2,22 +2,22 @@
 import { useState, useEffect } from 'react'
 
 const RandomImage = () => {
-    const [Screen, setScreen] = useState(null);
+    const [Image, setImage] = useState(null);
     const animvalue = Math.floor(Math.random() * 2);
     useEffect(() => {
       fetch("media.json")
         .then((response) => response.json())
         .then((data) => {
-          setScreen(data[animvalue]); 
+          setImage(data[animvalue]); 
         })
         .catch((error) => console.error("Error loading data:", error));
     }, []);
   
-    if (!Screen) return <p>Loading...</p>; // Handle loading state
+    if (!Image) return <p>Loading...</p>;
 
 const randomValue = Math.floor(Math.random() * 5);
 console.log(randomValue);
-const firstImageUrl = Screen.screenshots[randomValue];
+const firstImageUrl = Image.screenshots[randomValue];
   
     return (
       <div>
@@ -25,5 +25,5 @@ const firstImageUrl = Screen.screenshots[randomValue];
       </div>
     );
   };
-  
-  export default RandomImage;
+
+export default RandomImage;
