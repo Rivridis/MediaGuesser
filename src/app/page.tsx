@@ -22,8 +22,8 @@ export default function Home() {
     
     if (screen != null)
       {
-        var guesses = document.getElementById("guesses")
-        var guessValue = guesses.value;
+        var guesses = document.getElementById("guesses") // @ts-ignore
+        var guessValue = guesses.value; // @ts-ignore
         var correct = screen.name;
         console.log(correct);
         if (guessValue
