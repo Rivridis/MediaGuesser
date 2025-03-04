@@ -11,7 +11,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    const animvalue = Math.floor(Math.random() * 2);
+    const animvalue = Math.floor(Math.random() * 3);
     fetch("media.json")
       .then((response) => response.json())
       .then((data) => {
