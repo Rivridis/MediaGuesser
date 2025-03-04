@@ -1,11 +1,13 @@
 "use client";
 import RandomImage from "./components/randomimage.jsx";
+import GuessBar from "./components/guessbar.jsx";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 
 export default function Home() {
   const [screen, setScreen] = useState(null);
+  const [gcount, setGcount] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -17,6 +19,11 @@ export default function Home() {
       })
       .catch((error) => console.error("Error loading data:", error));
   }, []);
+
+  function skipTurn() { // @ts-ignore
+    router.push(`/incorrect?correct=${encodeURIComponent(screen.name)}`);
+  }
+
 
   function handleClick() {
     
@@ -31,8 +38,16 @@ export default function Home() {
           {
             router.push(`/correct?guess=${encodeURIComponent(guessValue)}`);
           }
-        
-      }
+        else
+        {
+          if (gcount < 4)
+          setGcount(gcount + 1);
+          else
+          {
+            router.push(`/incorrect?correct=${encodeURIComponent(correct)}`);
+          }
+        }
+}
  
   
   }
@@ -57,10 +72,8 @@ export default function Home() {
         </button>
       </div>
       <div className="flex flex-row items-center justify-center">
-      {[...Array(5)].map((_, index) => (
-          <div key={index} className="w-8 h-8 mx-2 bg-gray-400 rounded-lg"></div>
-        ))}
-        <button className="bg-[#A9B5DF] hover:bg-[#7886C7] text-white font-bold py-2 px-4 rounded-lg mx-4">
+        <GuessBar gcount={gcount}/>
+        <button onClick={skipTurn} className="bg-[#A9B5DF] hover:bg-[#7886C7] text-white font-bold py-2 px-4 rounded-lg mx-4">
           Skip
         </button>
       </div>
